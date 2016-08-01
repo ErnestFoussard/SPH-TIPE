@@ -18,11 +18,11 @@ namespace SPH_TIPE
     {
         public static double KernelSimple(double r) // Poly 6
         {
-            double facteur = 315/(64 * Math.PI * Math.Pow(constants.rayonSPH,6)); // On divise une fois de plus par rayonSPH pour renormaliser
-            return r <= constants.rayonSPH ? facteur * Math.Pow(Math.Pow(constants.rayonSPH, 2) - Math.Pow(r, 3), 3) : 0;
+            double facteur = 315/(64 * Math.PI * Math.Pow(constants.rayonSPH,10)); // On divise une fois de plus par rayonSPH pour renormaliser
+            return r <= constants.rayonSPH ? facteur * Math.Pow(Math.Pow(constants.rayonSPH, 2) - Math.Pow(r, 2), 3) : 0;
             //if(r <= constants.rayonSPH)
             //{
-            //    return facteur * Math.Pow(Math.Pow(constants.rayonSPH, 2) - Math.Pow(r, 3), 3);
+            //    return facteur * Math.Pow(Math.Pow(constants.rayonSPH, 2) - Math.Pow(r, 2), 3);
             //}
             //else
             //{

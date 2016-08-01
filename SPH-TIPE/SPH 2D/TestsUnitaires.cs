@@ -12,7 +12,7 @@ namespace SPH_TIPE
     {
         public static void TestInit()
         {
-            Systeme.Initialisation("init.xml");
+            Systeme.Initialisation("init.xml",new Tuple<float,float>(-50,-50), new Tuple<float,float>(50,50));
             Console.WriteLine("masse" + constants.masse);
             Console.WriteLine("masse" + constants.pasTemporel);
             Console.WriteLine("masse" + constants.rayonSPH);
@@ -22,7 +22,7 @@ namespace SPH_TIPE
 
         public static void TestHydrostatique0()
         {
-            Systeme.Initialisation(@"C:\Users\Ernest\Desktop\Conditions initiales TIPE\Hydrostatique-2071718.xml");
+            Systeme.Initialisation(@"C:\Users\Ernest\Desktop\Conditions initiales TIPE\Hydrostatique-2071718.xml", new Tuple<float, float>(-50, -50), new Tuple<float, float>(50, 50));
             Console.WriteLine("Masse:" + constants.masse);
             Console.WriteLine("Pas Temporel:" + constants.pasTemporel);
             Console.WriteLine("Rayon SPH:" + constants.rayonSPH);
@@ -36,6 +36,17 @@ namespace SPH_TIPE
             Console.ReadKey();
         }
 
+        public static void TestHydrostatique1()
+        {
+            Systeme.Initialisation(@"C:\Users\Ernest\Desktop\Conditions initiales TIPE\Hydrostatique-181054.xml", new Tuple<float, float>(-50000, -50000), new Tuple<float, float>(50000, 50000));
+            string chemin = Environment.CurrentDirectory + "/Experiences/Hydrostatique-" + DateTime.Now.Day 
+                                                                                 + DateTime.Now.Month 
+                                                                                 + DateTime.Now.Hour 
+                                                                                 + DateTime.Now.Minute 
+                                                                                 + ".xml";
+            Systeme.Experience(Environment.CurrentDirectory + "/Experiences/Vide.xml",chemin,10);
+        }
+
         public static void TestCreationSystemeHydrostatique()
         {
             string chemin = Environment.CurrentDirectory + "/Hydrostatique-" + DateTime.Now.Day 
@@ -44,7 +55,7 @@ namespace SPH_TIPE
                                                                                  + DateTime.Now.Minute 
                                                                                  + ".xml";
             Init.XFichier = XDocument.Load(Environment.CurrentDirectory + "/Vide.xml");
-            Init.SystemeHydrostatiqueSimple(1, 0.1, 100, new Vector(0, 0), new Vector(100, 100));
+            Init.SystemeHydrostatiqueSimple(1, 0.1, 100, new Vector(0, 0), new Vector(1000, 1000));
             Init.XFichier.Save(chemin);
             Console.WriteLine("done");
             Console.ReadKey();

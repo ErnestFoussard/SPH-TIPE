@@ -10,7 +10,8 @@ namespace SPH_TIPE
         static void Main(string[] args)
         {
             //TestsUnitaires.TestCreationSystemeHydrostatique();
-            TestsUnitaires.TestHydrostatique0();
+            //TestsUnitaires.TestHydrostatique0();
+            TestsUnitaires.TestHydrostatique1();
         }
     }
 }

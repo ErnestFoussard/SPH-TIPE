@@ -28,7 +28,7 @@ namespace SPH_TIPE
             {
                 for (int y = 0; y <= NombreY; y++)
                 {
-                    XFichier.Element("conditionsInitiales").Add(XCreerParticule(new Vector(x,y),new Vector(0,0), new Vector(0,0),x*NombreY + y,
+                    XFichier.Element("conditionsInitiales").Add(XCreerParticule(new Vector(x,y),new Vector(0,0), new Vector(0,0),x*(NombreY + 1) + y,
                                                                                                       !(x==0 || x==NombreX || y==0 || y==NombreY)));
                                                                                                       //Si on est aux limites, on met des particules fixes
                 }
